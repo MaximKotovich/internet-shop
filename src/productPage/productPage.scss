@@ -1,0 +1,18 @@
+.productBody{
+    display: flex;
+    justify-content: center;
+    background-color: burlywood;
+    .productList{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 20%;
+        align-items: center;
+        button{
+            width: 30%;
+        }
+        button, p, .coast{
+            margin: 1%;
+        }
+    }
+}
