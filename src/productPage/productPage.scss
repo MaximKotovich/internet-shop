@@ -2,11 +2,15 @@
     display: flex;
     justify-content: center;
     background-color: burlywood;
+    width: 100%;
+    height: auto;
     .productList{
         display: flex;
         justify-content: center;
         flex-direction: column;
-        width: 20%;
+        width: 50%;
+        
+        background-color: aqua;
         align-items: center;
         button{
             width: 30%;

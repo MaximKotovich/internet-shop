@@ -2,7 +2,9 @@ import React from "react"
 import { useDispatch, useSelector } from "react-redux"
 import "./basketPage.scss"  
 import ClearIcon from '@mui/icons-material/Clear';
-import { CLOSE_BASKET } from "../reducers/openBasket";
+import { CLOSE_BASKET} from "../reducers/openBasket";
+import {REMOVE_BASKET} from "../reducers/basketReducer";
+
 
 
 
@@ -11,14 +13,13 @@ const BasketPage = () => {
     const product = useSelector(state => state.basket.basketArr)
     const dispatch = useDispatch()
     const closeBasket = () => {
-        console.log("CLOSE_BASKET")
         dispatch({type: CLOSE_BASKET, payload: false})
     }    
-    // const deleteProduct = (pos) =>{
-
-    // }
-    const basketBody = product.map((item, pos)=>{
-        return(
+    const deleteProduct = (item) =>{
+      dispatch({type: REMOVE_BASKET, payload: item})
+    }
+    const basketBody = product.map((item, pos)=>{       
+      return(
           <>
           <div className="infoForProduct" key={pos}>
             <div>
@@ -30,7 +31,7 @@ const BasketPage = () => {
             <div>
               {item.coast}$
             </div>
-            <ClearIcon />
+            <ClearIcon onClick = {()=>deleteProduct(item)}/>
           </div>
           
           </>

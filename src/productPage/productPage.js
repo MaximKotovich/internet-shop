@@ -19,7 +19,22 @@ const ProductPage = () =>{
             id: 2,
             title: "Свитшот",
             coast: 300,
-        }
+        },
+        {
+            id: 3,
+            title: "Туфли",
+            coast: 120,
+        },
+        {
+            id: 4,
+            title: "Боитнки",
+            coast: 280,
+        },
+        {
+            id: 5,
+            title: "Куртка",
+            coast: 540,
+        }        
     ]
 
     const basketNewProduct = (item) =>{

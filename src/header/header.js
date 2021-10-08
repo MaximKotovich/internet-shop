@@ -22,7 +22,6 @@ const Header = () => {
     const setBasketActive = () =>{
         dispatch({type: OPEN_BASKET, payload: true})
     }
-    console.log(state.basketArr.length)
     return (
         <header>
         <div className="top-menu">
