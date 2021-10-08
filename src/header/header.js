@@ -3,20 +3,25 @@ import "./header.scss"
 // import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import PhoneIcon from '@material-ui/icons/Phone';
 import { ShoppingBasketOutlined } from "@material-ui/icons";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Typography from '@mui/material/Typography';
+import { OPEN_BASKET } from "../reducers/openBasket";
 
 const Header = () => {
 
 
     const state = useSelector(state => state.basket)
+    const open = useSelector(state => state.open)
+    const dispatch = useDispatch() 
     const divStyle = {
         fontSize: '15px',
       };
     const basketStyle = {
         fontSize: "25px",
     }
-    const [basketActive, setBasketActive] = useState(false)
+    const setBasketActive = () =>{
+        dispatch({type: OPEN_BASKET, payload: true})
+    }
     console.log(state.basketArr.length)
     return (
         <header>
@@ -38,11 +43,9 @@ const Header = () => {
              <a to="/contacts">Контакты</a>
             </li>
             <li className="basket">
-                 <ShoppingBasketOutlined style = {basketStyle} onClick = {()=>setBasketActive(true)}></ShoppingBasketOutlined><p>{state.basketArr.length}</p>
+                 <ShoppingBasketOutlined style = {basketStyle} onClick = {()=>setBasketActive()}>
+                 </ShoppingBasketOutlined><p>{state.basketArr.length}</p>
             </li>
-            {/* <li>
-               <p>{state.basketArr.length}</p>
-            </li> */}
           </ul>
         </div>
       </header>
