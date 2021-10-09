@@ -2,11 +2,13 @@ import React from "react"
 import { useDispatch, useSelector} from "react-redux";
 import "./productPage.scss"
 import {ADD_TO_BASKET} from "../reducers/basketReducer.js"
+import { ALL_COAST } from "../reducers/productCoastReducer";
 
 
 const ProductPage = () =>{
 
     const dispatch = useDispatch()
+    const allcoast = useSelector(state => state.fullcoast)
     const productInBasket = useSelector(state => state.basket)
 
     const productArr = [
@@ -39,6 +41,7 @@ const ProductPage = () =>{
 
     const basketNewProduct = (item) =>{
         dispatch({type: ADD_TO_BASKET, payload: item})
+        dispatch({type: ALL_COAST, payload: item.coast})
     }
 
     const product = productArr.map((item)=>{

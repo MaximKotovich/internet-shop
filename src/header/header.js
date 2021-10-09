@@ -4,7 +4,6 @@ import "./header.scss"
 import PhoneIcon from '@material-ui/icons/Phone';
 import { ShoppingBasketOutlined } from "@material-ui/icons";
 import { useDispatch, useSelector } from "react-redux";
-import Typography from '@mui/material/Typography';
 import { OPEN_BASKET } from "../reducers/openBasket";
 
 const Header = () => {
@@ -33,10 +32,10 @@ const Header = () => {
               <a to="/">Главная</a>
             </li>
             <li>
-              <a to="/friends">Друзья</a>
+              <a to="/friends">Акции</a>
             </li>
             <li>
-              <a to="/service">О сервисе</a>
+              <a to="/service">Каталог</a>
             </li>
             <li>
              <a to="/contacts">Контакты</a>

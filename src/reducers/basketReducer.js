@@ -10,7 +10,7 @@ export const basketReducer = (state = initialstate, action) => {
     switch (action.type){
         case ADD_TO_BASKET: {
             return {
-                ...state, basketArr: [...state.basketArr, action.payload]
+                ...state, basketArr: [...state.basketArr, action.payload],
             }
         }
         case REMOVE_BASKET:{

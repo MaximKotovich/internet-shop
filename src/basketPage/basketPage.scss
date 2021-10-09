@@ -17,7 +17,6 @@ $blackColorOpacity: rgba(0,0,0,0.5);
  
     .bodyBasket{
         min-width: 50%;
-        min-height: 30%;
         background-color: white;
         padding: 2%;
         display: flex;
@@ -38,7 +37,7 @@ $blackColorOpacity: rgba(0,0,0,0.5);
                 width: 100%;
                 display:flex;
                 justify-content: center;
-                font-size: 25px;                
+                font-size: 25px;                    
             }
             .closeBut{
                 cursor: pointer;
@@ -52,9 +51,21 @@ $blackColorOpacity: rgba(0,0,0,0.5);
             display: flex;
             flex-direction: column;
            .infoForProduct{
+            width: 100%;
             display:flex;
             justify-content: space-around;
             margin: 1%;
+           }
+           >p{
+            display: flex;
+            justify-content: center;
+            align-items: center;  
+            font-size: 18px;  
+           }
+           .allCoast{
+            display: flex;
+            justify-content: space-between;
+            font-size: 20px;
            }
         }
     }
