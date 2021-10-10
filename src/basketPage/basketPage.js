@@ -16,7 +16,7 @@ const BasketPage = () => {
   };
   const deleteProduct = (item) => {
     dispatch({ type: REMOVE_BASKET, payload: item });
-    dispatch({ type: REMOVE_COAST, payload: item.coast });
+    dispatch({ type: REMOVE_COAST, payload: item.coast*item.count });
   };
   console.log(allcoast);
   const basketBody = product.map((item, pos) => {
@@ -26,6 +26,7 @@ const BasketPage = () => {
           <div>{pos + 1}</div>
           <div>{item.title}</div>
           <div>{item.coast}$</div>
+          <div>{item.count}шт</div>
           <ClearIcon onClick={() => deleteProduct(item)} />
         </div>
       </>

@@ -1,22 +1,24 @@
 .productBody{
     display: flex;
     justify-content: center;
-    background-color: burlywood;
     width: 100%;
     height: auto;
+    
     .productList{
         display: flex;
         justify-content: center;
         flex-direction: column;
         width: 50%;
         
+        margin: 1%;
         background-color: aqua;
         align-items: center;
         button{
-            width: 30%;
+            width: 100%;
+            padding: 5%;
         }
         button, p, .coast{
-            margin: 1%;
+            margin: 4%;
         }
     }
 }

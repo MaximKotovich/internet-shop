@@ -1,4 +1,4 @@
-import React from "react"
+import React,{useState} from "react"
 import { useDispatch, useSelector} from "react-redux";
 import "./productPage.scss"
 import {ADD_TO_BASKET} from "../reducers/basketReducer.js"
@@ -38,18 +38,28 @@ const ProductPage = () =>{
             coast: 540,
         }        
     ]
-
-    const basketNewProduct = (item) =>{
-        dispatch({type: ADD_TO_BASKET, payload: item})
-        dispatch({type: ALL_COAST, payload: item.coast})
+    console.log("productArr",productArr)
+    const basketNewProduct = (id, title, coast, count) =>{
+        const card = {
+            id: id,
+            title: title,
+            coast: coast,
+            count: Number(count)
+        }
+        console.log("card",card)
+        dispatch({type: ADD_TO_BASKET, payload: card})
+        dispatch({type: ALL_COAST, payload: card.coast*card.count})
     }
+    const [count,setCount] = useState(1)
 
-    const product = productArr.map((item)=>{
+    const product = productArr.map((item,pos)=>{
         return(
             <div className="productList" key={item.id}>
                 <p>{item.title}</p>
                 <div className="coast">{item.coast}$</div>
-                <button onClick = {() => basketNewProduct(item)}>Добавить в корзину</button>
+                <p>Введите количество товара:</p>
+                <input type='text' onChange={(e) =>  setCount(e.target.value)} required/>
+                <button onClick = {() => {basketNewProduct(item.id,item.title, item.coast, count);  setCount(1)}}>Добавить в корзину</button>
             </div>
         )
     })
