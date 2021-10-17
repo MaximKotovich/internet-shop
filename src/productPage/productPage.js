@@ -3,8 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import "./productPage.scss";
 import { ADD_TO_BASKET } from "../reducers/basketReducer.js";
 import { ALL_COAST } from "../reducers/productCoastReducer";
-import TextField from "@mui/material/TextField";
+// import TextField from "@mui/material/TextField";
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import ButtonGroup from '@mui/material/ButtonGroup';
+import Button from '@mui/material/Button';
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
 import img1 from "../img/1.jpg";
 import img2 from "../img/2.jpg";
 import img3 from "../img/3.jpg";
@@ -71,33 +75,41 @@ const ProductPage = () => {
         <div className="card-body">
           <p>{item.title}</p>
           <div className="coast">{item.coast}$</div>
-          {/* <p>Введите количество товара:</p> */}
-          {/* <input
-            type="text"
-            onChange={(e) => setCount(e.target.value)}
-            required
-          /> */}
-          {/* <TextField className="inputCount" size="small" id="standard-basic" label="Введите количество товара"  
-          onChange={(e) => setCount(e.target.value)}/> */}
           <div className="blockCount">
-          <TextField
-            className="inputCount"
-            id="outlined-basic"
-            label="Введите количество товара"
-            variant="outlined"
-            size="small"
-            onChange={(e) => setCount(e.target.value)}
-          />
-          <div className="blockAdd">       
-            <AddShoppingCartIcon 
-                className = "buttonAdd"
-               onClick={() => {
-                basketNewProduct(item.id, item.title, item.coast, count);
-                setCount(1);
-              }}
-            />
+          <ButtonGroup>
+          <Button           
+            aria-label="increase"
+            data-testid={`buttonRemove${item.id}`}
+            onClick={() => {
+              setCount(Math.max(count - 1, 1));
+            }}
+          >
+            <RemoveIcon fontSize="small" />
+          </Button>
+          </ButtonGroup>         
+          <div className="count" data-testid={`testTFest${item.id}`}>{count}</div>
+          <ButtonGroup>
+          <Button
+          data-testid={`buttonADD${item.id}`}
+            aria-label="increase"
+            onClick={() => {
+              setCount(count + 1);
+            }}
+          >
+            <AddIcon fontSize="small" />         
+          </Button>
+          <div className="blockAdd">
+              <AddShoppingCartIcon
+              data-testid={`buttonAddBasket${item.id}`}
+                className="buttonAdd"
+                onClick={() => {
+                  basketNewProduct(item.id, item.title, item.coast, count);
+                  setCount(1);
+                }}
+              />
             </div>
-            </div>
+        </ButtonGroup>
+        </div>
         </div>
       </div>
     );

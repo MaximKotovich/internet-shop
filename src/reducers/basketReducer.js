@@ -2,7 +2,7 @@
 export const ADD_TO_BASKET = "ADD_TO_BASKET"
 export const REMOVE_BASKET = "REMOVE_BASKET"
 
-const initialstate = {
+export const initialstate = {
     basketArr: [],
 };
 

@@ -7,7 +7,7 @@ import { REMOVE_BASKET } from "../reducers/basketReducer";
 import { REMOVE_COAST } from "../reducers/productCoastReducer";
 
 const BasketPage = () => {
-  const open = useSelector((state) => state.open.open);
+  // const open = useSelector((state) => state.open.open);
   const product = useSelector((state) => state.basket.basketArr);
   const allcoast = useSelector((state) => state.fullcoast.productsCoast);
   const dispatch = useDispatch();
@@ -24,10 +24,10 @@ const BasketPage = () => {
       <>
         <div className="infoForProduct" key={pos}>
           <div>{pos + 1}</div>
-          <div>{item.title}</div>
+          <div  data-testid={`itemTitle${item.id}`}>{item.title}</div>
           <div>{item.coast}$</div>
           <div>{item.count}шт</div>
-          <ClearIcon onClick={() => deleteProduct(item)} />
+          <ClearIcon onClick={() => deleteProduct(item)}/>
         </div>
       </>
     );
@@ -39,15 +39,15 @@ const BasketPage = () => {
         <div className="bodyBasket">
           <div className="titleBasket">
             <p>Корзина</p>
-            <ClearIcon className="closeBut" onClick={() => closeBasket()} />
+            <ClearIcon className="closeBut" onClick={() => closeBasket()}   data-testid="closeBut" />
           </div>
           <hr />
           <div className="productsBody">
-            {product.length === 0 ? <p>Ваша корзина пуста</p> 
+            {product.length === 0 ? <p data-testid="basketClear">Ваша корзина пуста</p> 
             : basketBody}
             <div className="allCoast">
               <p>Общая стоимость:</p>
-              <p>{allcoast}$</p>
+              <p  data-testid="basketAllCoast">{allcoast}$</p>
             </div> 
             
           </div>

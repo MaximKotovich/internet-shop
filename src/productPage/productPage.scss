@@ -33,24 +33,15 @@
             .blockCount{
                 display: flex;
                 flex-direction: row;
-                .blockAdd{
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    bottom: 0;
-                    margin-left: 1%;
-                    .buttonAdd{
-                        color: rgb(53, 53, 248);
-                        cursor: pointer;
-                        font-size: 30px;
-                        
-                    }
-                }
-                .inputCount{
-                    margin-left: 2%;
-                    font-size: 15px;
-                }
-                           
+                margin-left: 2%;
+               .count{
+                   padding: 1%;
+               } 
+               .blockAdd{
+                   color: rgb(53, 53, 255);
+                   font-size: 30px;
+                   cursor: pointer;
+               }                         
             }          
            
         }
