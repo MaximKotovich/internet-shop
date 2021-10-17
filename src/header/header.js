@@ -41,7 +41,9 @@ const Header = () => {
              <a to="/contacts">Контакты</a>
             </li>
             <li className="basket">
-                 <ShoppingBasketOutlined style = {basketStyle} onClick = {()=>setBasketActive()}>
+                 <ShoppingBasketOutlined style = {basketStyle} onClick = {()=>setBasketActive()}
+                 data-testid="openBasket"
+                 >
                  </ShoppingBasketOutlined><p>{state.basketArr.length}</p>
             </li>
           </ul>

@@ -2,6 +2,7 @@ import React from "react"
 import '@testing-library/jest-dom/extend-expect';
 import ProductPage from "../productPage/productPage.js"
 import BasketPage from "../basketPage/basketPage.js"
+import Header from "../header/header.js"
 import { rootReducer } from "../store/reducer.js";
 import {render} from "@testing-library/react"
 import '@testing-library/jest-dom/extend-expect';
@@ -24,9 +25,7 @@ import userEvent from "@testing-library/user-event"
     
         describe("reactReduxBasket", ()=>{
             it("checks count", ()=>{
-            const componentProduct = renderWithRedux(<ProductPage/>)
-            const componentBasket = renderWithRedux(<BasketPage/>)
-            userEvent.click(componentProduct.getByTestId("buttonAddBasket1"));            
-            expect (componentBasket.getByTestId("basketClear")).toHaveTextContent("Ваша корзина пуста");
+            const componentBasket = renderWithRedux(<BasketPage/>)            
+            expect(componentBasket.getByText("Ваша корзина пуста")).toBeInTheDocument();
         })
     })
