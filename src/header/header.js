@@ -7,8 +7,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { OPEN_BASKET } from "../reducers/openBasket";
 
 const Header = () => {
-
-
     const state = useSelector(state => state.basket)
     const open = useSelector(state => state.open)
     const dispatch = useDispatch() 

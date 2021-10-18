@@ -7,18 +7,19 @@ import { REMOVE_BASKET } from "../reducers/basketReducer";
 import { REMOVE_COAST } from "../reducers/productCoastReducer";
 
 const BasketPage = () => {
-  // const open = useSelector((state) => state.open.open);
   const product = useSelector((state) => state.basket.basketArr);
   const allcoast = useSelector((state) => state.fullcoast.productsCoast);
   const dispatch = useDispatch();
+
   const closeBasket = () => {
     dispatch({ type: CLOSE_BASKET, payload: false });
   };
+  
   const deleteProduct = (item) => {
     dispatch({ type: REMOVE_BASKET, payload: item });
     dispatch({ type: REMOVE_COAST, payload: item.coast*item.count });
   };
-  console.log(allcoast);
+
   const basketBody = product.map((item, pos) => {
     return (
       <>

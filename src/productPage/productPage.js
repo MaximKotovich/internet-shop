@@ -16,9 +16,6 @@ import img4 from "../img/4.jpg";
 import img5 from "../img/5.jpg";
 
 const ProductPage = () => {
-  const dispatch = useDispatch();
-  const allcoast = useSelector((state) => state.fullcoast);
-  const productInBasket = useSelector((state) => state.basket);
 
   const productArr = [
     {
@@ -52,7 +49,12 @@ const ProductPage = () => {
       coast: 540,
     },
   ];
-  console.log("productArr", productArr);
+
+  const [count, setCount] = useState(1);
+  const dispatch = useDispatch();
+  const allcoast = useSelector((state) => state.fullcoast);
+  const productInBasket = useSelector((state) => state.basket);
+
   const basketNewProduct = (id, title, coast, count) => {
     const card = {
       id: id,
@@ -60,12 +62,9 @@ const ProductPage = () => {
       coast: coast,
       count: Number(count),
     };
-    console.log("card", card);
     dispatch({ type: ADD_TO_BASKET, payload: card });
     dispatch({ type: ALL_COAST, payload: card.coast * card.count });
   };
-  const [count, setCount] = useState(1);
-
   const product = productArr.map((item, pos) => {
     return (
       <div className="productList" key={item.id}>

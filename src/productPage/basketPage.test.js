@@ -9,9 +9,6 @@ import { Provider} from 'react-redux';
 import { createStore } from "redux";
 import userEvent from "@testing-library/user-event"
 
-
-
-
         const renderWithRedux = (
             component, 
             {initialState, store = createStore(rootReducer, initialState)} ={}
