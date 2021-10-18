@@ -1,0 +1,78 @@
+
+$blackColorOpacity: rgba(0,0,0,0.5);
+
+.basketPage{
+    display:flex;
+	position: fixed;
+    background-color: $blackColorOpacity;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    z-index:0; 
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+	transition: 0.5s;
+	pointer-events: none;
+ 
+    .bodyBasket{
+        min-width: 50%;
+        background-color: white;
+        padding: 2%;
+        display: flex;
+        flex-direction: column;
+        hr{
+            border: none; 
+            background-color: $blackColorOpacity; 
+            color: $blackColorOpacity; 
+            height: 2px; 
+            margin-bottom: 2%;
+        }
+        .titleBasket{
+            width: 100%;
+            display:flex;
+            justify-content: space-between;
+            margin-bottom: 2%;
+            p{
+                width: 100%;
+                display:flex;
+                justify-content: center;
+                font-size: 25px;                    
+            }
+            .closeBut{
+                cursor: pointer;
+                font-size: 30px;
+                :hover{
+                    color: red;
+                }
+            }
+        }
+        .productsBody{
+            display: flex;
+            flex-direction: column;
+           .infoForProduct{
+            width: 100%;
+            display:flex;
+            justify-content: space-around;
+            margin: 1%;
+           }
+           >p{
+            display: flex;
+            justify-content: center;
+            align-items: center;  
+            font-size: 18px;  
+           }
+           .allCoast{
+            display: flex;
+            justify-content: space-between;
+            font-size: 20px;
+           }
+        }
+    }
+    
+}
+.active {
+    z-index: 99999999; 
+    pointer-events: all;
+    opacity: 1;
+}
