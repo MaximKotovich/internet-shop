@@ -1,29 +1,32 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import "./basketPage.scss";
 import ClearIcon from "@mui/icons-material/Clear";
-import { CLOSE_BASKET } from "../reducers/openBasket";
-import { REMOVE_BASKET } from "../reducers/basketReducer";
-import { REMOVE_COAST } from "../reducers/productCoastReducer";
+import {basketTypes} from "../reducers/basketReducer"
+import {openBasketTypes} from "../reducers/openBasket"
+import {allCoastBasketTypes} from "../reducers/productCoastReducer"
+import {useTypeSelector} from "../store/reducer"
+import {Type} from "../reducers/basketReducer"
 
 const BasketPage = () => {
-  const product = useSelector((state) => state.basket.basketArr);
-  const allcoast = useSelector((state) => state.fullcoast.productsCoast);
+  const product = useTypeSelector((state) => state.basket.basketArr);
+  const allcoast = useTypeSelector((state) => state.fullcoast.productsCoast);
+  const open = useTypeSelector((state) => state.open.open);
   const dispatch = useDispatch();
 
   const closeBasket = () => {
-    dispatch({ type: CLOSE_BASKET, payload: false });
+    dispatch({ type: openBasketTypes.CLOSE_BASKET, payload: false });
   };
   
-  const deleteProduct = (item) => {
-    dispatch({ type: REMOVE_BASKET, payload: item });
-    dispatch({ type: REMOVE_COAST, payload: item.coast*item.count });
+  const deleteProduct = (item:Type) => {
+    dispatch({ type: basketTypes.REMOVE_BASKET, payload: item });
+    dispatch({ type: allCoastBasketTypes.REMOVE_COAST, payload: item.coast*item.count });
   };
 
   const basketBody = product.map((item, pos) => {
     return (
       <>
-        <div className="infoForProduct" key={pos}>
+        <div className="infoForProduct" key={item.id}>
           <div>{pos + 1}</div>
           <div  data-testid={`itemTitle${item.id}`}>{item.title}</div>
           <div>{item.coast}$</div>

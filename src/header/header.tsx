@@ -1,14 +1,15 @@
 import React, { useState } from "react"
 import "./header.scss"
-// import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import PhoneIcon from '@material-ui/icons/Phone';
 import { ShoppingBasketOutlined } from "@material-ui/icons";
-import { useDispatch, useSelector } from "react-redux";
-import { OPEN_BASKET } from "../reducers/openBasket";
+import { useDispatch } from "react-redux";
+import { openBasketTypes } from "../reducers/openBasket"
+import {useTypeSelector} from "../store/reducer"
+import {Link} from "react-router-dom"
 
 const Header = () => {
-    const state = useSelector(state => state.basket)
-    const open = useSelector(state => state.open)
+    const state = useTypeSelector(state => state.basket)
+    const open = useTypeSelector(state => state.open)
     const dispatch = useDispatch() 
     const divStyle = {
         fontSize: '15px',
@@ -17,7 +18,7 @@ const Header = () => {
         fontSize: "25px",
     }
     const setBasketActive = () =>{
-        dispatch({type: OPEN_BASKET, payload: true})
+        dispatch({type: openBasketTypes.OPEN_BASKET, payload: true})
     }
     return (
         <header>
@@ -27,16 +28,16 @@ const Header = () => {
              <PhoneIcon style={divStyle}></PhoneIcon>+375338562365
             </li>
             <li>
-              <a to="/">Главная</a>
+              <Link to="/">Главная</Link>
             </li>
             <li>
-              <a to="/friends">Акции</a>
+              <Link to="/friends">Акции</Link>
             </li>
             <li>
-              <a to="/service">Каталог</a>
+              <Link to="/service">Каталог</Link>
             </li>
             <li>
-             <a to="/contacts">Контакты</a>
+             <Link to="/contacts">Контакты</Link>
             </li>
             <li className="basket">
                  <ShoppingBasketOutlined style = {basketStyle} onClick = {()=>setBasketActive()}

@@ -1,19 +1,27 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import './App.css';
-import Header from "./header/header.js"
-import ProductPage from "./productPage/productPage.js"
-import BasketPage from "./basketPage/basketPage.js"
-import {BrowserRouter,Route} from "react-router-dom"
+import { BrowserRouter, Route, Switch } from "react-router-dom"
+
+const Header = lazy(() => import('./header/header'));
+const ProductPage = lazy(() => import('./productPage/productPage'));
+const BasketPage = lazy(() => import('./basketPage/basketPage'));
+const Contacts = lazy(() => import('./contacts/contacts'));
 
 function App() {
   return (
-  <BrowserRouter>
-    <div className="App">
-      <Header/>
-      <Route exact path= "/" component={ProductPage}/>
-      <BasketPage />
-    </div>
-  </BrowserRouter>  
+    <BrowserRouter>
+      <div className="App">
+
+        <Suspense fallback={<div>Loading...</div>}>
+          <Header />
+          <Switch>
+            <Route exact path="/" component={ProductPage} />
+            <Route exact path="/contacts" component={Contacts} />
+          </Switch>
+          <BasketPage />
+        </Suspense>
+      </div>
+    </BrowserRouter>
   );
 }
 

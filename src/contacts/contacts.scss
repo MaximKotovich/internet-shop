@@ -1,0 +1,25 @@
+.ContentContacts{
+    margin-top: 30px;
+    width: 100%;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .bodyContacts{
+        padding: 2%;
+        display: flex;
+        width: 40%;
+        background-color: rgba(0, 0, 0, 0.11); 
+        padding-left: 10%;   
+        padding-right: 10%;  
+        justify-content: center;
+        ul li{
+            display: flex;
+            justify-content: center;
+            list-style-type: none;
+        margin: 20px 0;
+        letter-spacing: 3px;
+        align-items: center;
+        }   
+    }
+}
