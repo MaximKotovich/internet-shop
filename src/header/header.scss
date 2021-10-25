@@ -29,6 +29,9 @@ header {
             display: flex;
             flex-direction: row;
             justify-content: center;
+            .basketStyle{
+                font-size: 25px;
+            }
             p {
                 background-color: red;
                 border-radius: 50%;
@@ -60,8 +63,10 @@ header {
             a:hover:after,
             a:focus:after {
                 width: 100%;
-}
-
+            }
+            .divStyle{
+                font-size: 15px;
+            }
         }
     }
 }

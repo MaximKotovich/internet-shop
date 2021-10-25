@@ -6,6 +6,8 @@ const Header = lazy(() => import('./header/header'));
 const ProductPage = lazy(() => import('./productPage/productPage'));
 const BasketPage = lazy(() => import('./basketPage/basketPage'));
 const Contacts = lazy(() => import('./contacts/contacts'));
+const Catalog = lazy(() => import('./catalog/catalog'));
+
 
 function App() {
   return (
@@ -17,6 +19,7 @@ function App() {
           <Switch>
             <Route exact path="/" component={ProductPage} />
             <Route exact path="/contacts" component={Contacts} />
+            <Route exact path="/catalog" component={Catalog} />
           </Switch>
           <BasketPage />
         </Suspense>
